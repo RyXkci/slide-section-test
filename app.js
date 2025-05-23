@@ -4,49 +4,6 @@ const lastSlide = document.querySelector(".last-slide");
 const sliderWrapper = document.querySelector(".slider-wrapper");
 const scrollEnd = document.querySelectorAll(".horizonal-scroll-end");
 
-// const slides = document.querySelector(".slides");
-
-// console.log(slidingSection);
-
-// const observer = new IntersectionObserver(
-//   (entries) => {
-//     entries.forEach((entry) => {
-//       if (entry.isIntersecting) {
-//         console.log("VISIBLE");
-//         slidingSection.classList.add("is-sticky");
-//       } else {
-//         slidingSection.classList.remove("is-sticky");
-//       }
-//     });
-//   },
-//   {
-//     threshold: .9,
-//   }
-// );
-
-// const observer = new IntersectionObserver(
-//   (entries) => {
-//     entries.forEach((entry) => {
-//       entry.target.classList.toggle("is-sticky", entry.isIntersecting);
-//     });
-//   },
-//   {
-//     threshold: 0.9,
-//   }
-// );
-
-// const lastSlideObserver = new IntersectionObserver(
-//   (entries) => {
-//     entries.forEach((entry) => {
-//       if (entry.isIntersecting) {
-//         slidingSection.classList.remove("is-sticky");
-//       }
-//     });
-//   },
-//   {
-//     threshold: 0.9,
-//   }
-// );
 
 const beginObserver = new IntersectionObserver(
   (entries) => {
@@ -100,30 +57,7 @@ resetObserver.observe(slides);
 const fadeInText = document.querySelectorAll ('.text-fade-in-anim');
 console.log(fadeInText);
 	
-	// const textFadeIn = new IntersectionObserver((entries) => {
-	// 	entries.forEach((entry) => {
-	// 		if (entry.isIntersecting) {
-  //       entry.target.classList.add('fade-in')
-  //     } else {
-  //       entry.target.classList.remove('fade-in')     }
-	// 	})
-	// }, {
-	// 	threshold: 1
-	// });
-	
-	// fadeInText.forEach(fader => {
-	// 	textFadeIn.observe(fader)
-	// })
 
-// const beginObserver = new IntersectionObserver((entries) => {
-//   entries.forEach((entry) => {
-//     if (entry.isIntersecting) {
-//       console.log("visible");
-//     } else {
-//       console.log("Not VISIBLE");
-//     }
-//   });
-// });
 
 beginObserver.observe(sliderWrapper);
 
@@ -157,3 +91,77 @@ const textFromBelow = new IntersectionObserver((entries) => {
 }, {
   threshold: 1
 })
+
+
+
+
+
+// const slides = document.querySelector(".slides");
+
+// console.log(slidingSection);
+
+// const observer = new IntersectionObserver(
+//   (entries) => {
+//     entries.forEach((entry) => {
+//       if (entry.isIntersecting) {
+//         console.log("VISIBLE");
+//         slidingSection.classList.add("is-sticky");
+//       } else {
+//         slidingSection.classList.remove("is-sticky");
+//       }
+//     });
+//   },
+//   {
+//     threshold: .9,
+//   }
+// );
+
+// const observer = new IntersectionObserver(
+//   (entries) => {
+//     entries.forEach((entry) => {
+//       entry.target.classList.toggle("is-sticky", entry.isIntersecting);
+//     });
+//   },
+//   {
+//     threshold: 0.9,
+//   }
+// );
+
+// const lastSlideObserver = new IntersectionObserver(
+//   (entries) => {
+//     entries.forEach((entry) => {
+//       if (entry.isIntersecting) {
+//         slidingSection.classList.remove("is-sticky");
+//       }
+//     });
+//   },
+//   {
+//     threshold: 0.9,
+//   }
+// );
+
+
+	// const textFadeIn = new IntersectionObserver((entries) => {
+	// 	entries.forEach((entry) => {
+	// 		if (entry.isIntersecting) {
+  //       entry.target.classList.add('fade-in')
+  //     } else {
+  //       entry.target.classList.remove('fade-in')     }
+	// 	})
+	// }, {
+	// 	threshold: 1
+	// });
+	
+	// fadeInText.forEach(fader => {
+	// 	textFadeIn.observe(fader)
+	// })
+
+// const beginObserver = new IntersectionObserver((entries) => {
+//   entries.forEach((entry) => {
+//     if (entry.isIntersecting) {
+//       console.log("visible");
+//     } else {
+//       console.log("Not VISIBLE");
+//     }
+//   });
+// });
