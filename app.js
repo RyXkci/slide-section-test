@@ -20,9 +20,11 @@ const beginObserver = new IntersectionObserver(
     });
   },
   {
-    threshold: .9,
+    threshold: .8,
+    rootMargin: '0px 0px -10% 0px'
   }
 );
+
 
 const lastSlideObserver = new IntersectionObserver(
   (entries) => {
@@ -33,7 +35,7 @@ const lastSlideObserver = new IntersectionObserver(
     });
   },
   {
-    treshold: 1,
+    threshold: 1,
     rootMargin: "100px",
   }
 );
@@ -52,7 +54,7 @@ const resetObserver = new IntersectionObserver(
   }
 );
 
-resetObserver.observe(slides);
+
 
 const fadeInText = document.querySelectorAll ('.text-fade-in-anim');
 console.log(fadeInText);
@@ -63,7 +65,10 @@ beginObserver.observe(sliderWrapper);
 
 // observer.observe(slidingSection);
 
-// lastSlideObserver.observe(lastSlide);
+lastSlideObserver.observe(lastSlide);
+
+
+resetObserver.observe(slides);
 
 
 
