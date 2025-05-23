@@ -1,0 +1,159 @@
+const slides = document.querySelector(".slides");
+const lastSlide = document.querySelector(".last-slide");
+
+const sliderWrapper = document.querySelector(".slider-wrapper");
+const scrollEnd = document.querySelectorAll(".horizonal-scroll-end");
+
+// const slides = document.querySelector(".slides");
+
+// console.log(slidingSection);
+
+// const observer = new IntersectionObserver(
+//   (entries) => {
+//     entries.forEach((entry) => {
+//       if (entry.isIntersecting) {
+//         console.log("VISIBLE");
+//         slidingSection.classList.add("is-sticky");
+//       } else {
+//         slidingSection.classList.remove("is-sticky");
+//       }
+//     });
+//   },
+//   {
+//     threshold: .9,
+//   }
+// );
+
+// const observer = new IntersectionObserver(
+//   (entries) => {
+//     entries.forEach((entry) => {
+//       entry.target.classList.toggle("is-sticky", entry.isIntersecting);
+//     });
+//   },
+//   {
+//     threshold: 0.9,
+//   }
+// );
+
+// const lastSlideObserver = new IntersectionObserver(
+//   (entries) => {
+//     entries.forEach((entry) => {
+//       if (entry.isIntersecting) {
+//         slidingSection.classList.remove("is-sticky");
+//       }
+//     });
+//   },
+//   {
+//     threshold: 0.9,
+//   }
+// );
+
+const beginObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        console.log("VISIBLE");
+        slides.classList.toggle("is-sticky");
+        sliderWrapper.classList.add("border-animated");
+      } else {
+        console.log("NOT VISIBLE");
+        slides.classList.remove("is-sticky");
+        sliderWrapper.classList.remove("border-animated");
+      }
+    });
+  },
+  {
+    threshold: .9,
+  }
+);
+
+const lastSlideObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        console.log("lastSlide IsVisible");
+      }
+    });
+  },
+  {
+    treshold: 1,
+    rootMargin: "100px",
+  }
+);
+
+const resetObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
+        // Section is above the viewport — user scrolled past it downwards
+        slides.scrollTop = 0;
+      }
+    });
+  },
+  {
+    threshold: 0,
+  }
+);
+
+resetObserver.observe(slides);
+
+const fadeInText = document.querySelectorAll ('.text-fade-in-anim');
+console.log(fadeInText);
+	
+	// const textFadeIn = new IntersectionObserver((entries) => {
+	// 	entries.forEach((entry) => {
+	// 		if (entry.isIntersecting) {
+  //       entry.target.classList.add('fade-in')
+  //     } else {
+  //       entry.target.classList.remove('fade-in')     }
+	// 	})
+	// }, {
+	// 	threshold: 1
+	// });
+	
+	// fadeInText.forEach(fader => {
+	// 	textFadeIn.observe(fader)
+	// })
+
+// const beginObserver = new IntersectionObserver((entries) => {
+//   entries.forEach((entry) => {
+//     if (entry.isIntersecting) {
+//       console.log("visible");
+//     } else {
+//       console.log("Not VISIBLE");
+//     }
+//   });
+// });
+
+beginObserver.observe(sliderWrapper);
+
+// observer.observe(slidingSection);
+
+// lastSlideObserver.observe(lastSlide);
+
+
+
+const textFadeIn = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('fade-in')
+    } else {
+      return;
+    }
+  })
+}, {
+threshold: 1
+}
+);
+
+const textFromBelow = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) {
+      return;
+    } else {
+      entry.target.classList.add('from-below');
+    }
+  })
+}, {
+  threshold: 1
+})
