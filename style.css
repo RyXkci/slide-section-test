@@ -77,7 +77,6 @@ button {
 
 
 
-
 .has-gradient-border-effect::before,
 .has-gradient-border-effect::after {
   content: '';
@@ -104,10 +103,7 @@ width: 70%;
   transform: translateX(-50%);
 }
 
-.has-gradient-border-effect.border-animated::before,
-.has-gradient-border-effect.border-animated::after {
-  opacity: 1;
-}
+
 
 
    /* BEGIN HOT SLIDE */
@@ -136,17 +132,43 @@ width: 70%;
 
 
 
-
 .wrapper{
   overflow-x: hidden;
   position: relative;
-  height: 100%;
  
 }
+
+.container::before,
+.container::after{
+  content: "";
+  position: absolute;
+  display: block;
+  height: 10px;
+  width: 50vw;
+  left: 25vw;
+  z-index: 100;
+ background: #235FE2;
+ background: radial-gradient(circle, rgba(35, 95, 226, 0.6) 0%, rgba(0, 8, 20, 0.58) 79%);
+  opacity: 0;
+  transition: all 500ms ease-in-out;
+}
+
+.container::before {
+  top: 15%;
+}
+.container::after {
+  bottom: 15%;
+}
+.container.border-animated::before,
+.container.border-animated::after {
+  opacity: 1;
+}
+
 
 .container {
   display: flex;
   width: 300vw;
+  position: relative;
 }
 
 .is-sticky {
