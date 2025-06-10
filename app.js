@@ -2,7 +2,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 console.log('gsap pushed');
 console.log('gsap mobile push');
-
+console.log('mobile');
 const wrapper = document.querySelector('.wrapper');
 
 const container = document.querySelector(".container");
@@ -21,7 +21,7 @@ const sections = gsap.utils.toArray(".slide");
       trigger: ".container",
       pin: true,
       scrub: 1,
-      end: '+=3000',
+      end: () => `+=${scrollLength}`,
       toggleAction: "reset pause none reset",
       invalidateOnRefresh: true,
 //        onUpdate: (self) => {

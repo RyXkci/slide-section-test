@@ -265,3 +265,28 @@ width: 70%;
   filter: blur(100px);
   animation: colorShift 5s ease-in-out infinite;
 }
+
+
+/* WORDPRESS BACCKUP ARCNET */
+
+@media screen and (min-wdth: 768px) {
+	.horizontal-scroll {
+	position: sticky!important;
+	top:0;
+	
+}
+}
+.horizontal-scroll {
+		overflow-y: scroll!important;
+	overflow-x: hidden!important;
+}
+	
+	
+.slides-container {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer and Edge */
+}
+
+.slides-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
